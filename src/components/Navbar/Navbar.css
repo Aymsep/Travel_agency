@@ -22,6 +22,7 @@
 .app__navbar-links li a{
     color: black;
     text-transform: capitalize;
+    transition:.5s; 
 }
 
 .app__navbar-button a{
@@ -31,4 +32,8 @@
     color: white;
     font-size: .9rem;
     letter-spacing: .8px;
+}
+
+.app__navbar-links li a:hover{
+    color: var(--primary-color);
 }
