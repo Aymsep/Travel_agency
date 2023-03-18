@@ -1,3 +1,7 @@
 .app__discover{
     padding: 125px;
 }
+
+.app__discover h1{
+    padding-bottom: 15px;
+}

@@ -5,7 +5,7 @@ import Discover from './Container/Discover/Discover'
 
 const App = () => {
   return (
-    <div>
+    <div >
       <Navbar/>
       <Header/>
       <Discover/>
