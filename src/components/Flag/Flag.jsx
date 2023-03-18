@@ -1,11 +1,10 @@
 import React from 'react'
 import './Flag.css'
-import canada from '../../assets/canada.png'
 
-const Flag = ({imagePath}) => {
+const Flag = ({flag}) => {
   return (
     <div className="flag-img">
-    <img src={canada} alt="" />
+    <img src={flag} alt="" />
     </div>
   )
 }

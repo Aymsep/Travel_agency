@@ -1,11 +1,10 @@
 import React from 'react'
 import Card from '../../components/Card/Card'
-import {AiOutlineUsergroupDelete,AiOutlineCalendar,AiTwotoneCar,AiOutlineHeart} from 'react-icons/ai'
-import {FaPlane} from 'react-icons/fa'
 import './Discover.css'
-import istanbul from '../../assets/istanbul.png'
-import canada from '../../assets/canada.png'
-import Flag from '../../components/Flag/Flag'
+import CardChild from '../../components/Card/CardChild'
+
+import { cards_data } from '../../database/cards'
+
 
 const Discover = () => {
     const url = "https://images.unsplash.com/photo-1613507681723-252eb6b66967?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTAzMzB8MHwxfGFsbHx8fHx8fHx8fDE2Mjc1OTMzMTQ&ixlib=rb-1.2.1&q=80&w=1080&utm_source=travelities&utm_medium=referral&utm_campaign=api-credit"
@@ -14,40 +13,27 @@ const Discover = () => {
         <h1>Discover Weekly</h1>
         <p className="p-text">Explore new travel inspiration updated every Monday</p>
         <div className="app__cards">
-            <Card>
-                <img src={istanbul} alt="" width="100%" height="200"/>
-                
-                <div className="app_card-opt">
-                    <div className="opt-fly opt">
-                        <FaPlane/>
-                    </div>
-                    <div className="opt-car opt">
-                        <AiTwotoneCar/>
-                    </div>
-                    <div className="opt-heart opt">
-                        <AiOutlineHeart/>
-                    </div>
-                </div>
 
-                <div className="app_card-desc">
-                    <h3>Moraine Lake</h3>
-                    <h3>$320</h3>
-                </div>
+                {
+                    cards_data && cards_data.map((card, i) =>(
+                <Card>
+                        <CardChild 
+                        key={i}
+                        place_image={card.image}
+                        plane={card.plane}
+                        car={card.car}
+                        price={card.price}
+                        location={card.location}
+                        country={card.country}
+                        adults={card.adults}
+                        date={card.date}
+                        nights={card.nights}
+                        flag={card.flag}
+                        />
+                </Card>
+                    ))
+                }
 
-                <div className="app_card-info">
-                    <Flag/>
-                    <span className="p-text" >Canada</span>
-                    <AiOutlineUsergroupDelete/>
-                    <span className="p-text">2 adults</span>
-                </div>
-
-                <div className="app_card-line"></div>
-
-                <div className="app_card-time">
-                    <p className="p-text">   <AiOutlineCalendar/> May 18 - 20 • 2 nights</p>
-                </div>
-                
-            </Card>
         </div>
     </div>
   )
