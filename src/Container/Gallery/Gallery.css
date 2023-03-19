@@ -1,6 +1,6 @@
 .app__gallery{
     padding: 50px 125px;
-    margin: 150px 0;
+    margin: 150px 0 250px;
     background-color: black;
     display: grid;
     grid-template-columns: 25% 50% 25%;

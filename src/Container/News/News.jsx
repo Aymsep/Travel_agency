@@ -41,6 +41,7 @@ const News = () => {
                                     country={card.country}
                                     plane={card.plane}
                                     car={card.car}
+                                    key={i}
                                     />
                             </Card>
                                 ))
@@ -58,6 +59,7 @@ const News = () => {
                                     country={card.country}
                                     plane={card.plane}
                                     car={card.car}
+                                    key={i}
                                     />
                             </Card>
                                 ))

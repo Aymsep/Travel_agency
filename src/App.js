@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import Discover from './Container/Discover/Discover'
 import News from './Container/News/News'
 import Gallery from './Container/Gallery/Gallery'
+import Footer from './components/Footer/Footer'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Discover/>
       <News/>
       <Gallery/>
+      <Footer/>
     </div>
   )
 }

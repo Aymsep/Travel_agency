@@ -1,11 +1,10 @@
 import React from 'react'
 import './Gallery_im.css'
-import { images } from '../../constant'
 
-const Gallery_im = ({width=150, height=150}) => {
+const Gallery_im = ({width=150, height=150,image}) => {
   return (
     <div className="app__image" style={{width:width?width:width,height:height?height:height}}>
-        <img src={images.canada_place} alt=""  />
+        <img src={image} alt=""  />
     </div>
   )
 }
