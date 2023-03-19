@@ -35,6 +35,9 @@ const Discover = () => {
                 }
 
         </div>
+                <div className="app__cards-a">
+                    <a href="#" className="app_viewall">View All</a>
+                </div>
     </div>
   )
 }
