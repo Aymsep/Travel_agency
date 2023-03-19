@@ -1,10 +1,11 @@
 .app__news{
     padding:60px 125px; 
-    margin:80px 125px; 
+    margin:50px 125px; 
     background-color: #dff6f4;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 25px;
+    gap: 85px;
 }
 
 .app__news-left h1{
@@ -49,4 +50,10 @@
 
 ::placeholder{
     color: var(--secondary-color);
+}
+
+
+
+.app__news-right{
+    position: relative;
 }

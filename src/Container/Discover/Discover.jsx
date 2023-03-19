@@ -16,7 +16,7 @@ const Discover = () => {
 
                 {
                     cards_data && cards_data.map((card, i) =>(
-                <Card>
+                <Card option='child' >
                         <CardChild 
                         key={i}
                         place_image={card.image}
