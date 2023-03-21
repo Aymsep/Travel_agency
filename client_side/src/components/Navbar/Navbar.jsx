@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -10,10 +11,10 @@ const Navbar = () => {
             <div className="app__navbar-logo">Travely</div>
 
             <ul className="app__navbar-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Discover</a></li>
-                <li><a href="#">Latest</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/discover">Discover</Link></li>
+                <li><Link to="contact">Contact us</Link></li>
+                <li><Link to="admin">admin</Link></li>
             </ul>
 
             <div className="app__navbar-button">

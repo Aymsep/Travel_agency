@@ -33,7 +33,7 @@ const News = () => {
             <div className="app__news-right1">
                     {
                                 cards_data && cards_data.slice(0,1).map((card, i) =>(
-                            <Card option='white' height={300} width={220} >
+                            <Card option='white' height={300} width={220} key={i} >
                                     <Card_news 
                                     image={card.image}
                                     location={card.location}
@@ -41,7 +41,6 @@ const News = () => {
                                     country={card.country}
                                     plane={card.plane}
                                     car={card.car}
-                                    key={i}
                                     />
                             </Card>
                                 ))
@@ -51,7 +50,7 @@ const News = () => {
             <div className="app__news-right2">
                     {
                                 cards_data && cards_data.slice(1,3).map((card, i) =>(
-                            <Card option='white' height={300} width={220} >
+                            <Card option='white' height={300} width={220} key={i} >
                                     <Card_news 
                                     image={card.image}
                                     location={card.location}
@@ -59,7 +58,6 @@ const News = () => {
                                     country={card.country}
                                     plane={card.plane}
                                     car={card.car}
-                                    key={i}
                                     />
                             </Card>
                                 ))
