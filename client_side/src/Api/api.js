@@ -8,11 +8,11 @@ const api = axios.create({
 })
 
 export function add_product(product){
-    return api.post('/products',product)
+    return api.post('/create',product)
 }
 
 export function get_product(product){
-    return api.get('/pro')
+    return api.get('/serve')
 }
 
 export default api;

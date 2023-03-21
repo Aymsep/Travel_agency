@@ -1,11 +1,23 @@
+const color = {
+    fg:{
+        green:"\x1b[32m",
+        red:"\x1b[31m",
+    }
+}
+
+
+
 const express = require('express')
 const app = express()
-
+const router = require('./Routes/productRoutes')
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+dotenv.config()
 
 const Port = 3005
 
 const server = app.listen(Port,()=>{
-    console.log('listening on port '+Port)
+    console.log(color.fg.green,'Listening on PORT '+Port+"  ✓")
 })
 
 app.use(express.json())
@@ -17,13 +29,14 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use('/',router)
 
-app.post('/products',(req,res)=>{
-    console.log(req.body)
-    console.log('entered')
-    res.status(200).json({success:'product added'})
+mongoose.connect(process.env.MONGOOSE_CONNECT)
+.then(()=>{
+    console.log(color.fg.green,'Connected To Database ✓')
+})
+.catch((error)=>{
+    console.log(color.fg.red,'Unable To Connect To Database')
+    console.error(error)
 })
 
-app.get('/pro',(req,res)=>{
-    res.status(200).json({success:'get all products'})
-})

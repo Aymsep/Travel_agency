@@ -12,7 +12,7 @@ export default function Form() {
     }
      function send(e){
         e.preventDefault()
-        get_product().then(response=>{
+       add_product(dataForm).then(response=>{
             setdataForm({})
             console.log(response.data)
         }).catch(err=>{
