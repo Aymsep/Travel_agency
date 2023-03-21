@@ -2,12 +2,11 @@ import React from 'react'
 import Card from '../../components/Card/Card'
 import './Discover.css'
 import CardChild from '../../components/Card/CardChild'
-
+import { Link } from 'react-router-dom'
 import { cards_data } from '../../database/cards'
 
 
 const Discover = () => {
-    const url = "https://images.unsplash.com/photo-1613507681723-252eb6b66967?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTAzMzB8MHwxfGFsbHx8fHx8fHx8fDE2Mjc1OTMzMTQ&ixlib=rb-1.2.1&q=80&w=1080&utm_source=travelities&utm_medium=referral&utm_campaign=api-credit"
   return (
     <div className="app__discover">
         <h1>Discover Weekly</h1>
@@ -16,9 +15,8 @@ const Discover = () => {
 
                 {
                     cards_data && cards_data.map((card, i) =>(
-                <Card option='child' >
+                <Card option='child' key={i}>
                         <CardChild 
-                        key={i}
                         place_image={card.image}
                         plane={card.plane}
                         car={card.car}
@@ -36,7 +34,7 @@ const Discover = () => {
 
         </div>
                 <div className="app__cards-a">
-                    <a href="#" className="app_viewall">View All</a>
+                    <Link to="/discover" className="app_viewall">View All</Link>
                 </div>
     </div>
   )

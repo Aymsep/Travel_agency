@@ -146,13 +146,13 @@ const Footer = () => {
                 </div>
                 <ul className="footer__links">
                   <li>
-                    <a href className="footer__link">CV</a>
+                    <a  className="footer__link">CV</a>
                   </li>
                   <li>
                     <a href='https://aymanelaouad.me/' className="footer__link">Portfolio</a>
                   </li>
                   <li>
-                    <a href className="footer__link">Contact</a>
+                    <a  className="footer__link">Contact</a>
                   </li>
                 </ul>
                 <div className="footer__socials">
