@@ -21,6 +21,7 @@ const server = app.listen(Port,()=>{
 })
 
 app.use(express.json())
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

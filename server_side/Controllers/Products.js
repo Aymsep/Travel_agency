@@ -1,11 +1,14 @@
 const Product_db = require('../Schemas/Products')
 
+
+
 exports.create_product = (req, res, next) => {
     const {title, description,price} = req.body
     const product = new Product_db({
         title:title,
         description:description,
-        price:price
+        price:price,
+        image:req.file.filename
     })
     product.save().then(()=>{
         console.log('product added successfully')
@@ -31,3 +34,4 @@ exports.getAllProducts = (req, res, next) => {
 }
 
 
+// Product_db.collection.deleteMany({})
