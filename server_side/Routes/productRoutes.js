@@ -12,5 +12,7 @@ router.post('/create',upload_file,products.create_product)
 
 router.get('/serve',products.getAllProducts)
 
+router.get('/details/:id',products.getOneProduct)
+
 
 module.exports = router

@@ -16,4 +16,8 @@ export function get_product(product){
     return api.get('/serve')
 }
 
+export function get_one_product(id){
+    return api.get(`/details/${id}`)
+}
+
 export default api;

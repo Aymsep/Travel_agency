@@ -1,7 +1,7 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import "./Details.scss"
 import Gallery from '../../components/Gallery_image/Gallery_im'
-import {Link} from 'react-router-dom'
+import {Link,useParams} from 'react-router-dom'
 import {AiFillLike,AiFillDislike,AiOutlineLike,AiOutlineDislike} from 'react-icons/ai'
 import {BsFillShieldFill,BsFillEnvelopeFill} from 'react-icons/bs'
 import Button from '../../components/Button/Button'
@@ -12,22 +12,37 @@ import {ImPhoneHangUp} from 'react-icons/im'
 import {MdOutlineMonitor,MdFoodBank} from 'react-icons/md'
 import {CgGym} from 'react-icons/cg'
 import {TbYoga} from 'react-icons/tb'
+import {BsArrowReturnLeft} from 'react-icons/bs'
+import { get_one_product } from '../../Api/api'
 
 
 
 const Details = () => {
-  const url = 'http://localhost:3005/uploads/image-1679538717418.jpg'
+  const {id} = useParams()
+  const [singleProduct, setsingleProduct] = useState([])
+  const url = 'h'
+  useEffect(()=>{
+    get_one_product(id).then((product)=>{
+      setsingleProduct(product.data)   
+    }).catch((error)=>{
+      console.log(error.message)
+    })
+  },[])
   return (
+    
     <div className="app__details">
-      <Link to="/discover" >Return Back</Link>
+      <Link to="/discover" ><BsArrowReturnLeft/> Return Back</Link>
+      {
+        singleProduct && singleProduct.map((pro,i)=>(
+          <div key={i}>
       <h1>315 Spectrum Road</h1>
       <p>Summerville, SCC, 24956</p>
 
       <div className="app__details-images">
-          <Gallery width={650} height={420} image={url} />
+          <Gallery width={650} height={420} image={`http://localhost:3005/uploads/${pro.image}`} />
           <div className="app__details-images-sec">
-              <Gallery width={400} height={180} image={url} />
-              <Gallery width={400} height={220} image={url} />
+              <Gallery width={400} height={180} image={`http://localhost:3005/uploads/${pro.image}`} />
+              <Gallery width={400} height={220} image={`http://localhost:3005/uploads/${pro.image}`} />
           </div>
       </div>
 
@@ -61,6 +76,10 @@ const Details = () => {
           </div>
         </div>
       </div>
+      </div>
+        ))
+      }
+      
 
       <div className="Header">
             <h1>Room Services</h1>

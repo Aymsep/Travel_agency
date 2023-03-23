@@ -8,8 +8,9 @@ exports.create_product = (req, res, next) => {
         title:title,
         description:description,
         price:price,
-        image:req.file.filename
+        image:req.file.filename,
     })
+    console.log(product)
     product.save().then(()=>{
         console.log('product added successfully')
         return res.status(201).json({success:'product added successfully'})
@@ -33,5 +34,14 @@ exports.getAllProducts = (req, res, next) => {
     })
 }
 
+
+exports.getOneProduct = (req, res, next) => {
+    const id = req.params.id
+    Product_db.findById(id).then((response)=>{
+        return res.status(200).json([response])
+    }).catch(err => {
+        return console.log(err.message)
+    })
+}
 
 // Product_db.collection.deleteMany({})
