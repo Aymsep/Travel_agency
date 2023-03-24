@@ -1,7 +1,7 @@
 import React from 'react'
-import Dashall from '../components/DashCard/Dashall'
 import Form from '../components/Form/Form'
-import './Admin.scss'
+import Dashall from './DashCard/Dashall'
+import Tablelisting from './Tables/Tablelisting'
 
 
 const Admin = () => {
@@ -10,6 +10,7 @@ const Admin = () => {
     <div className='app__admin'>
       <Form />
       <Dashall/>
+      <Tablelisting/>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-
 import Dashcard from "./Dashcard";
 
 import {HiPresentationChartLine} from 'react-icons/hi'
@@ -8,7 +7,7 @@ import {get_product} from '../../Api/api'
 
 
 export default function Dashall(){
-    const [listing, setlisting] = useState()
+    const [listing, setlisting] = useState(0)
     useEffect(()=>{
         get_product().then((response)=>{
             setlisting(response.data.response.length)

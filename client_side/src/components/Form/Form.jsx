@@ -40,7 +40,7 @@ export default function Forms() {
 
       <Modal  size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Adding A Listing</Modal.Title>
+          <Modal.Title className='form_title' >Adding A Listing</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={send} encType="multipart/form-data" >
