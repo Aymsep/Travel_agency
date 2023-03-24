@@ -1,4 +1,4 @@
-import React from 'react'
+    import React from 'react'
 import {AiOutlineUsergroupDelete,AiOutlineCalendar,AiTwotoneCar,AiOutlineHeart} from 'react-icons/ai'
 import {FaPlane} from 'react-icons/fa'
 import istanbul from '../../assets/istanbul.png'
@@ -34,21 +34,21 @@ const CardChild = ({place_image,plane,car,price,location,country,adults,date,nig
                 </div>
 
                 <div className="app_card-desc">
-                    <h3>{location}</h3>
-                    <h3>${price}</h3>
+                    <h3 className="card_hhh" >{location}</h3>
+                    <h3 className="card_hhh" >${price}</h3>
                 </div>
 
                 <div className="app_card-info">
                     <Flag flag={flag}/>
-                    <span className="p-text" >{country}</span>
+                    <span className="card_span p-text" >{country}</span>
                     <AiOutlineUsergroupDelete/>
-                    <span className="p-text">{adults} Adults</span>
+                    <span className="card_span p-text">{adults} Adults</span>
                 </div>
 
                 <div className="app_card-line"></div>
 
                 <div className="app_card-time">
-                    <p className="p-text">   <AiOutlineCalendar/> {date} • {nights} Nights</p>
+                    <p className="card_time p-text">   <AiOutlineCalendar/> {date} • {nights} Nights</p>
                 </div>
     </div>
   )

@@ -19,10 +19,14 @@
     display: flex;
     gap: 20px;
 }
-.app__navbar-links li a{
+.app__navbar-links .navbar-a{
     color: black;
     text-transform: capitalize;
     transition:.5s; 
+    margin-bottom: 0;
+}
+.navbar_li{
+    margin-bottom: 0
 }
 
 .app__navbar-button a{

@@ -5,7 +5,7 @@ import './Button.css'
 const Button = ({text,icon}) => {
   return (
     <>
-    <button>{text} {icon&&icon}</button>
+    <button className='button_button'>{text} {icon&&icon}</button>
     </>
   )
 }

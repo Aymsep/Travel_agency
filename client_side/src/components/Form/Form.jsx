@@ -1,7 +1,7 @@
 import { useState } from "react"
 import api,{add_product,get_product} from "../../Api/api"
 import { useNavigate } from "react-router-dom";
-import { Button,Form,Modal } from 'react-bootstrap';
+import { Button,Form,Modal,InputGroup  } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Form.scss'
 import {BsFillPlusSquareFill} from 'react-icons/bs'
@@ -31,7 +31,7 @@ export default function Forms() {
 
       }
     return (
-        <div className="app__admin">
+        <div className="app__form">
  
       <Button className="form_buttons" variant="primary" onClick={handleShow}>
         Add A Listing
@@ -53,11 +53,20 @@ export default function Forms() {
               <Form.Label className='form_label'>Hotel Description</Form.Label>
               <Form.Control className='form_input' onChange={formChange} name="description" type="text" placeholder="Enter Hotel Description" />
             </Form.Group>
+            
+        <Form.Label className='form_label'>Price</Form.Label>
+      <InputGroup size="md" className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-sm">$</InputGroup.Text>
+        <Form.Control className='form_input' onChange={formChange} type="number" name="price" placeholder="Enter Number Input" />
+        {/* <Form.Control
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm"
+        /> */}
+      </InputGroup>
 
-            <Form.Group controlId="formBasicNumber">
-              <Form.Label className='form_label'>Price</Form.Label>
-              <Form.Control className='form_input' onChange={formChange} type="number" name="price" placeholder="Enter Number Input" />
-            </Form.Group>
+            {/* <Form.Group controlId="formBasicNumber">
+              <InputGroup.Text id="inputGroup-sizing-sm">Small</InputGroup.Text>
+            </Form.Group> */}
 
             <Form.Group controlId="formBasicFile">
               <Form.Label className='form_label'>Hotel Images</Form.Label>

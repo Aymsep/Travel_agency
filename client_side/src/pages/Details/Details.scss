@@ -72,9 +72,13 @@ svg{
                 }
             }
             &-col4{
-                button{
+                .details_btn{
+                    padding: 8px 25px;
                     width: 100%;
+                    border-radius: 12px;
+                    color: white;
                     cursor: pointer;
+                    background-color: var(--primary-color);
                 }
             }
         }

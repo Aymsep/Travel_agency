@@ -2,7 +2,8 @@
     padding: 125px;
 }
 
-.app__discover h1{
+.header_dis{
+    color: var(--primary-color);
     padding-bottom: 15px;
 }
 

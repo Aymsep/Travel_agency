@@ -9,7 +9,7 @@ import { cards_data } from '../../database/cards'
 const Discover = () => {
   return (
     <div className="app__discover">
-        <h1>Discover Weekly</h1>
+        <h1 className='header_dis' >Discover Weekly</h1>
         <p className="p-text">Explore new travel inspiration updated every Monday</p>
         <div className="app__cards">
 

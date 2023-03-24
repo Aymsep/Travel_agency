@@ -1,4 +1,5 @@
-.app__discover{
+.app__discovers{
+    padding:15px 50px;
     display:grid;
     grid-template-columns: repeat(4,1fr);
     gap: 25px;
