@@ -1,0 +1,32 @@
+.app__admin{
+    padding-top: 15px;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    h1{
+        text-align: center;
+        color: white;
+        margin-bottom: 10px;
+    }
+    }
+
+.form_label{
+    text-transform: capitalize !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 8px !important  ; 
+}
+.form_input:not(input[type=file]){
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.form_buttons{
+    cursor: pointer;
+    padding: 8px 25px;
+    letter-spacing: .9px;
+    position: absolute;
+    right: 2rem;
+}

@@ -1,11 +1,17 @@
 import { useState } from "react"
 import api,{add_product,get_product} from "../../Api/api"
+import { useNavigate } from "react-router-dom";
+import { Button,Form,Modal } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Form.scss'
+import {BsFillPlusSquareFill} from 'react-icons/bs'
 
 
-
-
-
-export default function Form() {
+export default function Forms() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const navigate = useNavigate()
     const [dataForm, setdataForm] = useState({})
     const formChange = e =>{
         if(e.target.type === 'file'){
@@ -18,33 +24,56 @@ export default function Form() {
         e.preventDefault()
        add_product(dataForm).then(response=>{
             console.log(response.data)
+            navigate('/discover')
         }).catch(err=>{
             console.log('product not added')
         })
 
       }
     return (
-        <>
-        <form onSubmit={send} encType="multipart/form-data" >
-        {/* Title */}
-        <label htmlFor="title">product title</label><br />
-        <input type="text" id="title"  onChange={formChange}  name="title" placeholder="Product Title" required /><br />
+        <div className="app__admin">
+ 
+      <Button className="form_buttons" variant="primary" onClick={handleShow}>
+        Add A Listing
+        <BsFillPlusSquareFill/> 
+      </Button>
 
-        {/* Description */}
-        <label htmlFor="description">product description</label><br />
-        <input type="text" id="description" onChange={formChange}  name="description" placeholder="Product Description" required /><br />
+      <Modal  size="lg" show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Adding A Listing</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={send} encType="multipart/form-data" >
+            <Form.Group controlId="formBasicText1">
+              <Form.Label className='form_label'>Hotel Name</Form.Label>
+              <Form.Control className='form_input' onChange={formChange} name='title' type="text" placeholder="Enter Hotel Name" />
+            </Form.Group>
 
-        {/* Price */}
-        <label htmlFor="price">product price</label><br />
-        <input type="number" id="price" onChange={formChange}  name="price" placeholder="Product Price" required /><br />
+            <Form.Group controlId="formBasicText2">
+              <Form.Label className='form_label'>Hotel Description</Form.Label>
+              <Form.Control className='form_input' onChange={formChange} name="description" type="text" placeholder="Enter Hotel Description" />
+            </Form.Group>
 
-        {/* Image */}
-        <label htmlFor="image">product image</label>
-        <input type="file" id="image" name="image" onChange={formChange} placeholder="Product Image" required /> 
+            <Form.Group controlId="formBasicNumber">
+              <Form.Label className='form_label'>Price</Form.Label>
+              <Form.Control className='form_input' onChange={formChange} type="number" name="price" placeholder="Enter Number Input" />
+            </Form.Group>
 
-        {/* Button */}
-        <button type="submit"  >Submit Product</button>
-      </form>
-        </>
+            <Form.Group controlId="formBasicFile">
+              <Form.Label className='form_label'>Hotel Images</Form.Label>
+              <Form.Control className='form_input' onChange={formChange} name="image" type="file" placeholder="Choose Image" />
+            </Form.Group>
+        <Modal.Footer>
+          <Button variant="primary" type='submit' onClick={handleClose}>
+            Save Changes 
+          </Button>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+          </Form>
+        </Modal.Body>
+      </Modal>
+        </div>
     )
 }

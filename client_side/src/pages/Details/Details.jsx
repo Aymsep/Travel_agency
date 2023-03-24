@@ -85,6 +85,9 @@ const Details = () => {
             <h1>Room Services</h1>
       </div>
       <div className="app__details-services">
+        [
+          
+        ]
         <Services text='3 bedroom' icon={<BiBed/>} />
         <Services text='Wifi' icon={<AiOutlineWifi/>} />
         <Services text='24/7 ' icon={<ImPhoneHangUp/>} />

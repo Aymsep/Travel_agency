@@ -4,6 +4,7 @@ import api,{get_product,get_one_product  } from '../../Api/api'
 import Card from '../../components/Card/Card'
 import CardChild from '../../components/Card/CardChild'
 import {Link} from 'react-router-dom'
+import './Discover.css'
 
 const Discover = () => {
   const [Data, setData] = useState()
@@ -15,7 +16,7 @@ const Discover = () => {
     })
   },[])
   return (
-    <div>
+    <div className='app__discover'>
       {
         Data && Data.map((pro,i)=>
         (
