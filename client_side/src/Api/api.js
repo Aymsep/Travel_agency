@@ -20,4 +20,8 @@ export function get_one_product(id){
     return api.get(`/details/${id}`)
 }
 
+export function delete_product(product){
+    return api.post(`/delete/${product}`)
+}
+
 export default api;

@@ -44,4 +44,19 @@ exports.getOneProduct = (req, res, next) => {
     })
 }
 
+
+
+exports.deleteProduct = (req, res,next) =>{
+    const id  = req.params.id
+    Product_db.findByIdAndRemove(id)
+    .then((response)=>{
+        console.log('product deleted')
+        return res.status(200).json('product deleted')
+    }).catch(err => {
+        console.log('product not deleted')
+        return res.status(200).json('product not deleted')
+    })
+
+}
+
 // Product_db.collection.deleteMany({})

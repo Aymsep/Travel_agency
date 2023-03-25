@@ -14,5 +14,6 @@ router.get('/serve',products.getAllProducts)
 
 router.get('/details/:id',products.getOneProduct)
 
+router.post('/delete/:id',products.deleteProduct)
 
 module.exports = router
