@@ -48,6 +48,7 @@ exports.getOneProduct = (req, res, next) => {
 
 exports.deleteProduct = (req, res,next) =>{
     const id  = req.params.id
+    console.log(id)
     Product_db.findByIdAndRemove(id)
     .then((response)=>{
         console.log('product deleted')

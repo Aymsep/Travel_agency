@@ -1,5 +1,5 @@
 import React,{useState,useEffect,createContext,useContext} from 'react'
-import { delete_All_products } from '../Api/api'
+import { delete_All_products,delete_product } from '../Api/api'
 
 const Context = createContext()
 
@@ -11,7 +11,14 @@ export const StateContext = ({children})=>{
     }
 
     const removeproduct  = (e) =>{
-        e.target.closest('.alltr').remove();
+        try{
+            let id = e.target.closest('.alltr').dataset.id
+            delete_product(id).then(()=>{
+                return e.target.closest('.alltr').remove()
+            })
+        }catch(err){    
+            console.log('all products deleted')
+        }
     }
 
 
