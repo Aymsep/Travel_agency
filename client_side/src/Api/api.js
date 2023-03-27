@@ -8,6 +8,7 @@ const api = axios.create({
     }
 })
 
+
 export function add_product(product){
     return api.post('/create',product)
 }
@@ -22,6 +23,10 @@ export function get_one_product(id){
 
 export function delete_product(product){
     return api.post(`/delete/${product}`)
+}
+
+export function delete_All_products(){
+    return api.delete('delete')
 }
 
 export default api;

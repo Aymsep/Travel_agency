@@ -1,16 +1,11 @@
 import './Action.scss'
 import {delete_product} from '../../Api/api'
-
+import { useStateContext } from '../../Context/StateContext'
 
 
 export default function Action({dlt,element}){
-    console.log()
-    const handledelete = id => {
-        // delete_product(id).then((response)=>{
-        //     console.log(response.data)
-        // })
-        console.log(element.current)
-    }
+const {removeproduct} = useStateContext()
+    
 
 
 
@@ -20,7 +15,7 @@ export default function Action({dlt,element}){
 
     return (
         <div className="app__action">
-            <span onClick={() => handledelete(dlt)}  className="span" >Delete</span>
+            <span onClick={removeproduct}  className="span" >Delete</span>
             <span className="span" >Edit</span>
             <span className="span" >csv</span>
         </div>

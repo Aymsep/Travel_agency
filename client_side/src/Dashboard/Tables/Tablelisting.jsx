@@ -5,25 +5,18 @@ import './Table.scss'
 import {get_product} from '../../Api/api'
 import {BiDotsVertical} from 'react-icons/bi'
 import Action from '../Action/Action';
+import { useStateContext } from '../../Context/StateContext';
 
 const Tablelisting = () => {
+  const {removeproduct} = useStateContext()
   const [data, setdata] = useState()
   const [id, setid] = useState()
-  const element = useRef(null)
 
-  const handleaction = (item,element) => {
+  const handleaction = (item) => {
     if (id == item) {
       setid(null)
-      element.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
     } else {
       setid(item)
-      element.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
     }
   };
 
@@ -57,7 +50,7 @@ const Tablelisting = () => {
         <tbody>
             {
               data && data.map((data,i)=>(
-                <tr ref={element} key={i} data-id={data._id}>
+                <tr className="alltr" key={i} data-id={data._id}>
                     <td>
                         <img className='image_rounded' src={`http://localhost:3005/uploads/${data.image}`} alt=""  />
                         <span>{data.title}</span>
@@ -67,8 +60,8 @@ const Tablelisting = () => {
                     <td>8</td>
                     <td>45</td>
                     <td>
-                        <BiDotsVertical  data-id={data._id}  onClick={()=>handleaction(data._id,element)} />
-                        {id == data._id && <Action element={element} dlt={data._id} />}
+                        <BiDotsVertical  data-id={data._id} onClick={()=>handleaction(data._id)} />
+                        {data._id == id && <Action/>}
                     </td>
                 </tr>
               ))

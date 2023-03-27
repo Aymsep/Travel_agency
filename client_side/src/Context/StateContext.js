@@ -1,14 +1,41 @@
 import React,{useState,useEffect,createContext,useContext} from 'react'
+import { delete_All_products } from '../Api/api'
 
 const Context = createContext()
 
 export const StateContext = ({children})=>{
-    function hey(){
-        console.log('hey clicked')
+    const deleteAllProduct = () =>{
+        delete_All_products().then(()=>{
+            console.log('all products deleted')
+        })
     }
+
+    const removeproduct  = (e) =>{
+        e.target.closest('.alltr').remove();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return(
         <Context.Provider
-        value={{hey}}
+        value={{
+        deleteAllProduct,
+        removeproduct
+        }}
         >
             {children}
         </Context.Provider>

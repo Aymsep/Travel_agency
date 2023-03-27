@@ -16,4 +16,6 @@ router.get('/details/:id',products.getOneProduct)
 
 router.post('/delete/:id',products.deleteProduct)
 
+router.delete('/delete',products.deleteAllProduct)
+
 module.exports = router

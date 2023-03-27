@@ -9,7 +9,7 @@ import { useStateContext } from '../../Context/StateContext'
 
 
 export default function Forms() {
-  const {hey} = useStateContext()
+  const {deleteAllProduct} = useStateContext()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -40,7 +40,7 @@ export default function Forms() {
                   <BsFillPlusSquareFill/> 
                 </Button>
 
-                <Button className="form_buttons form_buttons-right" variant="danger" onClick={hey}>
+                <Button className="form_buttons form_buttons-right" variant="danger" onClick={deleteAllProduct}>
                   Delete All
                   <BsFillTrashFill/> 
                 </Button>

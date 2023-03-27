@@ -59,4 +59,9 @@ exports.deleteProduct = (req, res,next) =>{
 
 }
 
-// Product_db.collection.deleteMany({})
+exports.deleteAllProduct = (req, res) => {
+    Product_db.collection.deleteMany({})
+    .then(()=>{
+        return res.status(200).json('deleted')
+    })
+}
