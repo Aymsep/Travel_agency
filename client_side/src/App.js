@@ -9,10 +9,12 @@ import Admin from './Dashboard/Admin'
 import Details from './pages/Details/Details'
 import NotFound from './pages/NotFound/Notfound'
 import './App.scss'
+import { StateContext } from './Context/StateContext'
 
 const App = () => {
   return (
     <BrowserRouter >
+    <StateContext>
           <Navbar/>
                 <Routes>
                   <Route index element={<Home/>}/>
@@ -22,6 +24,7 @@ const App = () => {
                   <Route path='details/:id' element={<Details/>}/>
                   <Route path='*' element={<NotFound/>}/>
                 </Routes>
+    </StateContext>
           {/* <Footer/> */}
     </BrowserRouter>
   )

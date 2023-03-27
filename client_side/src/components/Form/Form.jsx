@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Button,Form,Modal,InputGroup  } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Form.scss'
-import {BsFillPlusSquareFill} from 'react-icons/bs'
+import {BsFillPlusSquareFill,BsFillTrashFill} from 'react-icons/bs'
+import { useStateContext } from '../../Context/StateContext'
 
 
 export default function Forms() {
+  const {hey} = useStateContext()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -32,11 +34,17 @@ export default function Forms() {
       }
     return (
         <div className="app__form">
- 
-      <Button className="form_buttons" variant="primary" onClick={handleShow}>
-        Add A Listing
-        <BsFillPlusSquareFill/> 
-      </Button>
+          <div className="buttons__">
+                <Button className="form_buttons form_buttons-left" variant="primary" onClick={handleShow}>
+                  Add A Listing
+                  <BsFillPlusSquareFill/> 
+                </Button>
+
+                <Button className="form_buttons form_buttons-right" variant="danger" onClick={hey}>
+                  Delete All
+                  <BsFillTrashFill/> 
+                </Button>
+          </div>
 
       <Modal  size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
