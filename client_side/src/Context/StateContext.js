@@ -14,12 +14,17 @@ export const StateContext = ({children})=>{
         try{
             let id = e.target.closest('.alltr').dataset.id
             delete_product(id).then(()=>{
-                return e.target.closest('.alltr').remove()
+                e.target.closest('.alltr').remove()
+                setlisting((prev)=>prev-1)
+
             })
         }catch(err){    
             console.log('all products deleted')
         }
     }
+
+    const [listing, setlisting] = useState(0)
+
 
 
 
@@ -41,7 +46,9 @@ export const StateContext = ({children})=>{
         <Context.Provider
         value={{
         deleteAllProduct,
-        removeproduct
+        removeproduct,
+        setlisting,
+        listing
         }}
         >
             {children}

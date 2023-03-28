@@ -18,4 +18,6 @@ router.post('/delete/:id',products.deleteProduct)
 
 router.delete('/delete',products.deleteAllProduct)
 
+router.post('/email',products.getAllEmail)
+
 module.exports = router

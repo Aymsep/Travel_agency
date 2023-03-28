@@ -4,13 +4,12 @@ const api = axios.create({
     baseURL:'http://localhost:3005',
     headers: {
         'Content-Type': 'application/json',
-        'Content-Type': 'multipart/form-data',
     }
 })
 
 
 export function add_product(product){
-    return api.post('/create',product)
+    return api.post('/create',product,{headers: {  'Content-Type': 'multipart/form-data'}})
 }
 
 export function get_product(product){
@@ -27,6 +26,10 @@ export function delete_product(product){
 
 export function delete_All_products(){
     return api.delete('delete')
+}
+
+export function get_All_email(email){
+    return api.post('/email',email)
 }
 
 export default api;

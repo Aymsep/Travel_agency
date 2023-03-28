@@ -11,6 +11,7 @@ const Tablelisting = () => {
   const {removeproduct} = useStateContext()
   const [data, setdata] = useState()
   const [id, setid] = useState()
+  const outside = useRef()
 
   const handleaction = (item) => {
     if (id == item) {
@@ -19,10 +20,6 @@ const Tablelisting = () => {
       setid(item)
     }
   };
-
-  const handleDelete = (item) => {
-    console.log(item.currentTarget)
-  }
 
 
 
@@ -50,8 +47,8 @@ const Tablelisting = () => {
         <tbody>
             {
               data && data.map((data,i)=>(
-                <tr className="alltr" key={i} data-id={data._id}>
-                    <td>
+                <tr  className="alltr" key={i} data-id={data._id}>
+                    <td >
                         <img className='image_rounded' src={`http://localhost:3005/uploads/${data.image}`} alt=""  />
                         <span>{data.title}</span>
                     </td>
@@ -59,9 +56,9 @@ const Tablelisting = () => {
                     <td>Available</td>
                     <td>8</td>
                     <td>45</td>
-                    <td>
-                        <BiDotsVertical  data-id={data._id} onClick={()=>handleaction(data._id)} />
-                        {data._id == id && <Action/>}
+                    <td ref={outside}>
+                        <BiDotsVertical  className='bsbs' data-id={data._id} onClick={()=>handleaction(data._id)} />
+                        {data._id == id && <Action />}
                     </td>
                 </tr>
               ))

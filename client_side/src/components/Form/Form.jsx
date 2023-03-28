@@ -24,7 +24,7 @@ export default function Forms() {
      function send(e){
         console.log(dataForm)
         e.preventDefault()
-       add_product(dataForm).then(response=>{
+        add_product(dataForm,{  'Content-Type': 'multipart/form-data'}).then(response=>{
             console.log(response.data)
             navigate('/discover')
         }).catch(err=>{

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import Flag from '../../components/Flag/Flag'
 import './News.css'
 import {FiSend} from 'react-icons/fi'
@@ -8,7 +8,26 @@ import CardChild from '../../components/Card/CardChild'
 import { cards_data } from '../../database/cards'
 import Card_news from '../../components/Card_news/Card_news'
 
+import { get_All_email } from '../../Api/api'
+
 const News = () => {
+    const email_value = useRef('')
+    const Handleemail = (e) =>{
+        e.preventDefault()
+        let email  = { email: email_value.current.value }
+        // fetch('http://localhost:3005/email',{
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify(email)
+        // }).then(response => {
+        //     console.log(response)
+        // })
+        get_All_email(email).then((em) => {
+            console.log('email saved')
+        })
+
+    }
+
   return (
     <div className="app__news">
 
@@ -23,8 +42,8 @@ const News = () => {
             </ul>
 
             <div className="app__news-input">
-                <input type="text" placeholder="Please enter your email" />
-                <FiSend/>
+                <input ref={email_value}  name="email" type="email" placeholder="Please enter your email" />
+                <FiSend onClick={Handleemail} />
             </div>
         </div>
 
