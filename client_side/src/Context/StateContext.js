@@ -24,7 +24,7 @@ export const StateContext = ({children})=>{
     }
 
     const [listing, setlisting] = useState(0)
-
+    const [username, setUsername] = useState('')
 
 
 
@@ -48,7 +48,9 @@ export const StateContext = ({children})=>{
         deleteAllProduct,
         removeproduct,
         setlisting,
-        listing
+        listing,
+        setUsername,
+        username
         }}
         >
             {children}

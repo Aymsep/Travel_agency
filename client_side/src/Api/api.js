@@ -32,4 +32,8 @@ export function get_All_email(email){
     return api.post('/email',email)
 }
 
+export function register(user){
+    return api.post('/register',user)
+}
+
 export default api;
