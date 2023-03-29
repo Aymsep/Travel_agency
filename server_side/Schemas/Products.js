@@ -14,6 +14,6 @@ const Products = mongoose.Schema({
    // car:{type:Boolean},
    
 
-}) 
+},{versionKey:false,timestamps:true}) 
 
 module.exports = mongoose.model('Products', Products)
