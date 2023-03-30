@@ -35,11 +35,16 @@ exports.login = async (req,res,next) => {
               if(!valid){
                 return res.status(401).json('Password is incorrect')
               }
-              const token = jwt.sign({userid:user._id},'secret')
+              const token = jwt.sign({userid:user._id,username:user.username},'secret')
                res.cookie('jwt',token,{
                 httpOnly:true,
+                sameSite: "none",
+                secure:false
+
               })
-              return res.status(200).json('user logged in')
+              return res.status(200).json({
+                username:user.username
+              })
            })
         })
     }catch{

@@ -26,8 +26,7 @@ router.post('/register',userAuth.register)
 
 router.post('/login',userAuth.login)
 
-router.get('/dashboard',(req,res) => {
-    console.log(req.headers)
+router.get('/dashboard',auth,(req,res) => {
     res.status(200).json('done')
 })
 
