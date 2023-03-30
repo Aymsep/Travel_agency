@@ -12,13 +12,18 @@ const app = express()
 const router = require('./Routes/productRoutes')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const cors = require('cors')
 dotenv.config()
 
 const Port = 3005
+const cookieParser = require('cookie-parser')
+
 
 const server = app.listen(Port,()=>{
     console.log(color.fg.green,'Listening on PORT '+Port+"  ✓")
 })
+
+app.use(cors({ origin: true, credentials: true }))
 
 app.use(express.json())
 app.use('/uploads', express.static(__dirname + '/uploads'));
@@ -31,6 +36,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/',router)
+app.use(cookieParser())
 
 mongoose.connect(process.env.MONGOOSE_CONNECT)
 .then(()=>{
